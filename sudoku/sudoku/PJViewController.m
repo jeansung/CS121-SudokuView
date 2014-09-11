@@ -35,6 +35,10 @@ int initialGrid[9][9] = {
     // change background color
     self.view.backgroundColor = [UIColor whiteColor];
     
+    // creating a grid
+    CGRect frame = self.view.frame;
+    
+    
     //creating a button
     CGFloat buttonSize = 50;
     CGRect buttonFrame = CGRectMake(200, 200, buttonSize, buttonSize);
