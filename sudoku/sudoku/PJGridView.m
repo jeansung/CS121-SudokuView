@@ -64,15 +64,12 @@
 -(void) setCellValue: (int) val AtRow: (int) row AndCol: (int) col {
     int adjustedIndex = (row*9) + col;
     
+    // only show non zero initial values (0 means empty value)
     if (val !=0) {
         PJGridCellView* current = [_gridCellArray objectAtIndex:adjustedIndex];
         [current setCellValue:val];
     }
-
-    
-    
 }
-
 
 
 /*
