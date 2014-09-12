@@ -38,9 +38,10 @@
             
             CGFloat frameSizeFactor = 0.95;
             CGFloat positionFactor = 0.05;
-            CGFloat offSet = MIN(frameSize.width, frameSize.height) * (1 - frameSizeFactor) / 2;
-            CGFloat x = frameSize.width * frameSizeFactor / cellCount * (r + positionFactor) + offSet;
-            CGFloat y = frameSize.height * frameSizeFactor / cellCount * (c + positionFactor) + offSet;
+            CGFloat xOffSet = frameSize.width * (1 - frameSizeFactor) / 6 * ((int) r/3 + 2);
+            CGFloat yOffSet = frameSize.width * (1 - frameSizeFactor) / 6 * ((int) c/3 + 2);
+            CGFloat x = frameSize.width * frameSizeFactor / cellCount * (r + positionFactor) + xOffSet;
+            CGFloat y = frameSize.height * frameSizeFactor / cellCount * (c + positionFactor) + yOffSet;
             
             CGFloat sizeFactor = 0.9 / cellCount;
             CGFloat size = MIN(frameSize.width, frameSize.height) * sizeFactor * frameSizeFactor;
