@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PJGridCellView : UIView
-
+-(void) initButtonAtRow:(int) row AndCol: (int) col ;
 @end

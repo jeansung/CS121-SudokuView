@@ -30,28 +30,32 @@
 - (void)drawGrid
 {
     _gridCellArray = [[NSMutableArray alloc] init];
-    for (int r = 0; r < 9; r++) {
-        for (int c = 0; c < 9; c++) {
+    for (int c = 0; c < 9; c++) {
+        for (int r = 0; r < 9; r++) {
             
             CGSize frameSize = self.bounds.size;
             int cellCount = 9;
             
-            CGFloat positionFactor = 1.05 / cellCount;
-            CGFloat x = frameSize.width * positionFactor * r;
-            CGFloat y = frameSize.height * positionFactor * c;
+            CGFloat frameSizeFactor = 0.95;
+            CGFloat positionFactor = 0.05;
+            CGFloat offSet = MIN(frameSize.width, frameSize.height) * (1 - frameSizeFactor) / 2;
+            CGFloat x = frameSize.width * frameSizeFactor / cellCount * (r + positionFactor) + offSet;
+            CGFloat y = frameSize.height * frameSizeFactor / cellCount * (c + positionFactor) + offSet;
             
             CGFloat sizeFactor = 0.9 / cellCount;
-            CGFloat size = MIN(frameSize.width, frameSize.height) * sizeFactor;
+            CGFloat size = MIN(frameSize.width, frameSize.height) * sizeFactor * frameSizeFactor;
             
             CGRect cellFrame = CGRectMake(x, y, size, size);
             PJGridCellView* cellView = [[PJGridCellView alloc] initWithFrame:cellFrame];
+            
+            [cellView initButtonAtRow:r AndCol:c];
+            
             cellView.backgroundColor = [UIColor whiteColor];
+            
             [self addSubview:cellView];
-            [self bringSubviewToFront:cellView];
             
-            NSLog(@"aahhhh");
             
-            //[_gridCellArray addObject:];
+            [_gridCellArray addObject: cellView];
         }
     }
 }
