@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PJGridView.h"
 
 @interface PJViewController : UIViewController
 

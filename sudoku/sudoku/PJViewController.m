@@ -21,7 +21,8 @@ int initialGrid[9][9] = {
 };
 
 @interface PJViewController () {
-     UIButton* _button;
+    UIButton* _button;
+    PJGridView* _gridView;
 }
 
 @end
@@ -35,15 +36,25 @@ int initialGrid[9][9] = {
     // change background color
     self.view.backgroundColor = [UIColor whiteColor];
     
-    // creating a grid
+    // creating a frame
     CGRect frame = self.view.frame;
+    // creating a grid frame view thing
+    CGFloat x = CGRectGetWidth(frame) *0.1;
+    CGFloat y = CGRectGetHeight(frame)*0.1;
+    CGFloat sizeFactor = 0.80;
+    CGFloat size = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))  * sizeFactor;
+    CGRect gridFrame = CGRectMake(x, y, size, size);
+    _gridView = [[PJGridView alloc] initWithFrame:gridFrame];
+    _gridView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_gridView];
     
     
-    //creating a button
-    CGFloat buttonSize = 50;
-    CGRect buttonFrame = CGRectMake(200, 200, buttonSize, buttonSize);
-    _button = [[UIButton alloc] initWithFrame:buttonFrame];
-    _button.backgroundColor = [UIColor redColor];
+//    
+//    //creating a button
+//    CGFloat buttonSize = 50;
+//    CGRect buttonFrame = CGRectMake(200, 200, buttonSize, buttonSize);
+//    _button = [[UIButton alloc] initWithFrame:buttonFrame];
+//    _button.backgroundColor = [UIColor redColor];
     
     // set highlight when pressed
     [_button setShowsTouchWhenHighlighted:YES];
