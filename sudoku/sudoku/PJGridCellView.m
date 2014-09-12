@@ -12,6 +12,7 @@
     UIButton* _button;
     int _row;
     int _col;
+    int _value;
 }
 
 @end
@@ -25,8 +26,7 @@
     }
     return self;
 }
-
--(void) initButtonAtRow:(int) row AndCol: (int) col {
+-(void) initButtonAtRow:(int) row AndCol: (int) col{
     
     _row = row;
     _col = col;
@@ -35,14 +35,19 @@
     CGRect buttonFrame = CGRectMake(0, 0, cellSize.width, cellSize.height);
     _button = [[UIButton alloc] initWithFrame:buttonFrame];
     [_button setShowsTouchWhenHighlighted:YES];
-    [_button setTitle:@"a" forState:UIControlStateNormal];
-    [_button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [_button addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_button];
 }
 
+-(void) setCellValue: (int) value {
+    _value = value;
+    [_button setTitle:[NSString stringWithFormat:@"%d",_value] forState:UIControlStateNormal];
+    [_button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+
+}
+
 -(void) buttonSelected:(id) sender {
-    NSLog(@"someone touched me at:(%d, %d)",_row, _col);
+    NSLog(@"(%d, %d) = %d",_row, _col, _value);
     
 }
 

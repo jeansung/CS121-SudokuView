@@ -38,50 +38,39 @@ int initialGrid[9][9] = {
     
     // creating a frame
     CGRect frame = self.view.frame;
-    // creating a grid frame view thing
+    
+    // creating a grid frame
     CGFloat x = CGRectGetWidth(frame) *0.1;
     CGFloat y = CGRectGetHeight(frame)*0.1;
     CGFloat sizeFactor = 0.80;
     CGFloat size = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))  * sizeFactor;
     CGRect gridFrame = CGRectMake(x, y, size, size);
+    
+    // setting up the grid view
     _gridView = [[PJGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
-    
     [_gridView drawGrid];
     
-    
-//    
-//    //creating a button
-//    CGFloat buttonSize = 50;
-//    CGRect buttonFrame = CGRectMake(200, 200, buttonSize, buttonSize);
-//    _button = [[UIButton alloc] initWithFrame:buttonFrame];
-//    _button.backgroundColor = [UIColor redColor];
-    
-    // set highlight when pressed
-    [_button setShowsTouchWhenHighlighted:YES];
-    
-    // setting tag
-    [_button setTag:1];
-    
-    //target for button
-    [_button addTarget:self action:@selector(buttonSelected:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self.view addSubview:_button];
+    // setting up values for the grid
+    [self initGridValues];
 }
 
-
-/**
- Method to handle when button is selected
- */
--(void) buttonSelected:(id) sender {
-    NSLog(@"Button 1 was presssed.");
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+-(void) initGridValues {
+    for (int col = 0; col < 9; col++) {
+        for (int row = 0; row < 9; row++) {
+            [_gridView setCellValue:initialGrid[col][row] AtRow:row AndCol:col];
+        }
+    }
 }
 
 @end
