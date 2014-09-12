@@ -471,6 +471,7 @@
 				0FE98FF319C25CCE00D46491 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FE98FF419C25CCE00D46491 /* Build configuration list for PBXNativeTarget "sudokuTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +480,7 @@
 				0FE98FF619C25CCE00D46491 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

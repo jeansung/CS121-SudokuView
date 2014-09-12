@@ -48,6 +48,8 @@ int initialGrid[9][9] = {
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
     
+    [_gridView drawGrid];
+    
     
 //    
 //    //creating a button

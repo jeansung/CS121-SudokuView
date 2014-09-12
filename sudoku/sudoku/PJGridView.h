@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PJGridCellView.h"
 
 @interface PJGridView : UIView
 
+- (void)drawGrid;
 @end
