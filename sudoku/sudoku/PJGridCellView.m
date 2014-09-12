@@ -48,7 +48,6 @@
     [_button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 }
 
-
 -(void) buttonHighlight: (id) sender {
     [_button setBackgroundColor:[UIColor yellowColor]];
 }

@@ -64,7 +64,8 @@ int initialGrid[9][9] = {
 }
 
 
-
+/* Initializes all of the starting sudoku values (will be replaced by model)
+ */
 -(void) initGridValues {
     for (int col = 0; col < 9; col++) {
         for (int row = 0; row < 9; row++) {
