@@ -30,18 +30,18 @@
 - (void)drawGrid
 {
     _gridCellArray = [[NSMutableArray alloc] init];
-    for (int c = 0; c < 9; c++) {
-        for (int r = 0; r < 9; r++) {
+    for (int r = 0; r < 9; r++) {
+        for (int c = 0; c < 9; c++) {
             
             CGSize frameSize = self.bounds.size;
             int cellCount = 9;
             
             CGFloat frameSizeFactor = 0.95;
             CGFloat positionFactor = 0.05;
-            CGFloat xOffSet = frameSize.width * (1 - frameSizeFactor) / 6 * ((int) r/3 + 2);
-            CGFloat yOffSet = frameSize.width * (1 - frameSizeFactor) / 6 * ((int) c/3 + 2);
-            CGFloat x = frameSize.width * frameSizeFactor / cellCount * (r + positionFactor) + xOffSet;
-            CGFloat y = frameSize.height * frameSizeFactor / cellCount * (c + positionFactor) + yOffSet;
+            CGFloat xOffSet = frameSize.width * (1 - frameSizeFactor) / 6 * ((int) c/3 + 2);
+            CGFloat yOffSet = frameSize.width * (1 - frameSizeFactor) / 6 * ((int) r/3 + 2);
+            CGFloat x = frameSize.width * frameSizeFactor / cellCount * (c + positionFactor) + xOffSet;
+            CGFloat y = frameSize.height * frameSizeFactor / cellCount * (r + positionFactor) + yOffSet;
             
             CGFloat sizeFactor = 0.9 / cellCount;
             CGFloat size = MIN(frameSize.width, frameSize.height) * sizeFactor * frameSizeFactor;
